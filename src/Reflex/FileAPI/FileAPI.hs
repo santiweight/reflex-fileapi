@@ -63,5 +63,5 @@ filereader name step inputE = do
             mText <- liftIO $ atomically $ readTBMQueue q
             case mText of
                 Nothing -> return ()
-                Just t  -> trigger t
+                Just t  -> liftIO $ trigger t
             return ()
